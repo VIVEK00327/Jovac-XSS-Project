@@ -652,3 +652,683 @@ img {
     padding: 1.5rem;
   }
 }
+
+/* ============================================================
+   Reflected XSS Learning Module — Page Styles
+   ============================================================
+   BEM-style classes prefixed with `rxss-` so they never
+   conflict with the global design system above.
+   ============================================================ */
+
+/* ---- Page wrapper ---- */
+.rxss-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  animation: fadeInUp 0.5s ease;
+}
+
+/* ---- Page Header ---- */
+.rxss-header {
+  margin-bottom: 2.5rem;
+}
+
+.rxss-header__top {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.rxss-header__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  color: var(--accent-cyan);
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.rxss-header__title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-heading);
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.rxss-header__subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Info banner */
+.rxss-info-banner {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.rxss-info-banner strong {
+  display: block;
+  color: var(--accent-cyan);
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.rxss-info-banner__icon {
+  color: var(--accent-cyan);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Two-column panel grid ---- */
+.rxss-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+/* ---- Individual panel ---- */
+.rxss-panel {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition-normal);
+}
+
+/* Vulnerable panel — red accent */
+.rxss-panel--vuln {
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+.rxss-panel--vuln:hover {
+  box-shadow: var(--shadow-card), 0 0 24px rgba(248, 113, 113, 0.1);
+}
+
+/* Secure panel — green accent */
+.rxss-panel--secure {
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.rxss-panel--secure:hover {
+  box-shadow: var(--shadow-card), 0 0 24px rgba(52, 211, 153, 0.1);
+}
+
+/* ---- Panel header bar ---- */
+.rxss-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.rxss-panel__header--vuln {
+  background: linear-gradient(
+    135deg,
+    rgba(248, 113, 113, 0.12) 0%,
+    rgba(248, 113, 113, 0.04) 100%
+  );
+}
+
+.rxss-panel__header--secure {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 211, 153, 0.12) 0%,
+    rgba(52, 211, 153, 0.04) 100%
+  );
+}
+
+.rxss-panel__header-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.rxss-panel__header--vuln .rxss-panel__header-icon {
+  color: var(--accent-red);
+}
+
+.rxss-panel__header--secure .rxss-panel__header-icon {
+  color: var(--accent-green);
+}
+
+.rxss-panel__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.1rem;
+}
+
+.rxss-panel__tagline {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Push badge to the right */
+.rxss-panel__header > *:nth-child(2) {
+  flex: 1;
+}
+
+/* ---- Status badge ---- */
+.rxss-badge {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.rxss-badge--danger {
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: var(--accent-red);
+}
+
+.rxss-badge--safe {
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: var(--accent-green);
+}
+
+/* ---- Panel body ---- */
+.rxss-panel__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ---- Label ---- */
+.rxss-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.rxss-label__hint {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ---- Input row ---- */
+.rxss-input-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.rxss-input {
+  flex: 1;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rxss-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+}
+
+/* Vulnerable input focus — red tint */
+.rxss-input--vuln:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
+}
+
+/* Secure input focus — green tint */
+.rxss-input--secure:focus {
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+}
+
+/* ---- Search buttons ---- */
+.rxss-btn {
+  white-space: nowrap;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-fast);
+}
+
+.rxss-btn--vuln {
+  background: rgba(248, 113, 113, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: var(--accent-red);
+}
+
+.rxss-btn--vuln:hover {
+  background: rgba(248, 113, 113, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
+}
+
+.rxss-btn--secure {
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: var(--accent-green);
+}
+
+.rxss-btn--secure:hover {
+  background: rgba(52, 211, 153, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+}
+
+/* ---- Payload hint chips ---- */
+.rxss-hints {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rxss-hints__label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.rxss-chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--border-default);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  text-align: left;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rxss-chip--vuln:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.rxss-chip--secure:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+/* ---- Result area ---- */
+.rxss-result {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  animation: fadeInUp 0.35s ease;
+}
+
+/* Vulnerable result */
+.rxss-result--vuln {
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: rgba(248, 113, 113, 0.04);
+}
+
+/* Secure result */
+.rxss-result--secure {
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: rgba(52, 211, 153, 0.04);
+}
+
+.rxss-result__label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.rxss-result--vuln .rxss-result__label {
+  color: var(--accent-red);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.rxss-result--secure .rxss-result__label {
+  color: var(--accent-green);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.rxss-result__output {
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.rxss-result__query-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Warning bar — visible under vulnerable result */
+.rxss-result__warning {
+  padding: 0.6rem 1rem;
+  font-size: 0.78rem;
+  background: rgba(248, 113, 113, 0.08);
+  border-top: 1px solid rgba(248, 113, 113, 0.2);
+  color: var(--accent-red);
+  font-family: var(--font-mono);
+}
+
+/* Success bar — visible under secure result */
+.rxss-result__success {
+  padding: 0.6rem 1rem;
+  font-size: 0.78rem;
+  background: rgba(52, 211, 153, 0.08);
+  border-top: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+}
+
+/* ---- Explanation section ---- */
+.rxss-explain {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+}
+
+.rxss-explain__title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  color: var(--text-heading);
+}
+
+.rxss-explain__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rxss-explain__list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border-default);
+}
+
+.rxss-explain__list--vuln li {
+  border-left-color: rgba(248, 113, 113, 0.4);
+}
+
+.rxss-explain__list--secure li {
+  border-left-color: rgba(52, 211, 153, 0.4);
+}
+
+.rxss-explain__list code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--accent-cyan);
+}
+
+/* ---- Security used checklist ---- */
+.rxss-security-used {
+  background: rgba(52, 211, 153, 0.05);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.rxss-security-used__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+}
+
+.rxss-security-used__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.08);
+}
+
+.rxss-security-used__item:last-child {
+  border-bottom: none;
+}
+
+.rxss-security-used__check {
+  color: var(--accent-green);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  margin-top: 1px;
+}
+
+/* ---- Attack / Processing flow diagram ---- */
+.rxss-flow {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+}
+
+.rxss-flow__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.rxss-flow__steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.rxss-flow__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.rxss-flow__step {
+  width: 100%;
+  text-align: center;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  background: rgba(10, 14, 26, 0.5);
+}
+
+.rxss-flow__arrow {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  margin: 0.25rem 0;
+}
+
+/* ---- Source code block ---- */
+.rxss-code {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+}
+
+.rxss-code__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.85rem;
+  background: rgba(10, 14, 26, 0.7);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.rxss-code__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.rxss-code__file-name {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.rxss-code__icon {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.rxss-code__pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  background: rgba(10, 14, 26, 0.4);
+}
+
+.rxss-code__pre code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  white-space: pre;
+}
+
+/* ---- Footer educational note ---- */
+.rxss-footer-note {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(251, 146, 60, 0.06);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.rxss-footer-note svg {
+  color: var(--accent-orange);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.rxss-footer-note strong {
+  color: var(--accent-orange);
+}
+
+.rxss-footer-note code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--accent-cyan);
+}
+
+/* ---- Responsive: tablet ---- */
+@media (max-width: 900px) {
+  .rxss-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .rxss-page {
+    padding: 2rem 1rem 3rem;
+  }
+}
+
+/* ---- Responsive: mobile ---- */
+@media (max-width: 480px) {
+  .rxss-header__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .rxss-input-row {
+    flex-direction: column;
+  }
+
+  .rxss-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rxss-hints {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rxss-chip {
+    max-width: 100%;
+  }
+}
