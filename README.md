@@ -1,4 +1,4 @@
-# 🛡️ XSS Learning Lab — Cyber Security Educational Portal
+# 🛡️ XSS Learning Lab — Cyber Security Educational 
 
 An interactive, double-sided laboratory and cybersecurity training platform designed to demonstrate the mechanics of Cross-Site Scripting (XSS) vulnerabilities and their real-world defensive counters. Developed using the MERN stack (MongoDB, Express, React, Node.js) with modular BEM styles.
 
