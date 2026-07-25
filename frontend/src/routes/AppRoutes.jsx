@@ -26,6 +26,12 @@ import Home from "../pages/Home";
 import ReflectedXSS from "../pages/ReflectedXSS";
 import StoredXSS from "../pages/StoredXSS";
 import DOMXSS from "../pages/DOMXSS";
+import Comparison from "../pages/Comparison";
+import Prevention from "../pages/Prevention";
+import PayloadLab from "../pages/PayloadLab";
+import Quiz from "../pages/Quiz";
+import Resources from "../pages/Resources";
+import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 
 const AppRoutes = () => {
@@ -44,6 +50,14 @@ const AppRoutes = () => {
         <Route path="/reflected-xss" element={<ReflectedXSS />} />
         <Route path="/stored-xss" element={<StoredXSS />} />
         <Route path="/dom-xss" element={<DOMXSS />} />
+
+        {/* Educational resource pages */}
+        <Route path="/comparison" element={<Comparison />} />
+        <Route path="/prevention" element={<Prevention />} />
+        <Route path="/payload-lab" element={<PayloadLab />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/about" element={<About />} />
 
         {/* Catch-all — 404 page for any unmatched route */}
         <Route path="*" element={<NotFound />} />
