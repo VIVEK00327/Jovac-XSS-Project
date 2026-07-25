@@ -12,10 +12,18 @@
 
 import axios from "axios";
 
+// Determine the API base URL based on the current window hostname (handles localhost, 127.0.0.1, or local IP address)
+const getBaseURL = () => {
+  if (typeof window !== "undefined" && window.location) {
+    const hostname = window.location.hostname;
+    return `http://${hostname}:5000/api`;
+  }
+  return "http://localhost:5000/api";
+};
+
 // Create an Axios instance with default settings
 const api = axios.create({
-  // Base URL of our Express backend server
-  baseURL: "http://localhost:5000/api",
+  baseURL: getBaseURL(),
 
   // Default headers sent with every request
   headers: {
