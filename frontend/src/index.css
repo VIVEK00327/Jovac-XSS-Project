@@ -2298,7 +2298,8 @@ img {
 }
 
 
-DOM Based XSS Learning Module — Page Styles (Restructured Layout)
+/* ============================================================
+   DOM Based XSS Learning Module — Page Styles (Restructured Layout)
    ============================================================
    BEM-style classes prefixed with `dxss-` for the new
    horizontal row-based side-by-side layout and accordion sections.
@@ -4478,7 +4479,7 @@ DOM Based XSS Learning Module — Page Styles (Restructured Layout)
 /* Credits grid */
 .about-credits-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
@@ -4582,4 +4583,14 @@ DOM Based XSS Learning Module — Page Styles (Restructured Layout)
 
   /* About */
   .about-card { padding: 1.25rem; }
+}
+
+/* Skeleton Loading Animation */
+@keyframes skeleton-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.35; }
+  100% { opacity: 0.6; }
+}
+.skeleton-pulse {
+  animation: skeleton-pulse 1.5s infinite ease-in-out;
 }

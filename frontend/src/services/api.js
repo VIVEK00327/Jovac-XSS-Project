@@ -12,8 +12,11 @@
 
 import axios from "axios";
 
-// Determine the API base URL based on the current window hostname (handles localhost, 127.0.0.1, or local IP address)
+// Determine the API base URL based on environment variables or current window hostname
 const getBaseURL = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
   if (typeof window !== "undefined" && window.location) {
     const hostname = window.location.hostname;
     return `http://${hostname}:5000/api`;

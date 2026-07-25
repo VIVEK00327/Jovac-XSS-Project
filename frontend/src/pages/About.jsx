@@ -7,6 +7,7 @@
  * Location: src/pages/About.jsx
  */
 
+import { Link } from "react-router-dom";
 import { HiInformationCircle } from "react-icons/hi";
 import { FaBookmark, FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
 
@@ -112,8 +113,12 @@ const About = () => {
               <p>Licensed under the ISC License. Free to copy, modify, and distribute for academic or educational security courses.</p>
             </div>
             <div>
+              <strong>Safety Policy</strong>
+              <p>Please review our <Link to="/disclaimer" style={{ color: "var(--accent-cyan)", textDecoration: "underline", fontWeight: "600" }}>Safety Guidelines & Legal Disclaimer</Link> before testing security payloads.</p>
+            </div>
+            <div>
               <strong>Future Improvements</strong>
-              <p>Upcoming phases plan to implement CSRF token simulations, session hijacking simulators, advanced CSP sandbox modifiers, and lab metrics dashboards.</p>
+              <p>Upcoming phases plan to implement CSRF simulations, session hijacking simulators, advanced CSP modifiers, and lab metrics dashboards.</p>
             </div>
           </div>
         </div>
@@ -122,7 +127,6 @@ const About = () => {
       {/* Info Callout */}
       <footer className="about-footer-info">
         <HiInformationCircle />
-        <span>Version 1.2.0 • Phase 6 Complete learning platform build</span>
       </footer>
     </div>
   );

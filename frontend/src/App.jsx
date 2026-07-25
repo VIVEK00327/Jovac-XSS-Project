@@ -16,6 +16,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import AppRoutes from "./routes/AppRoutes";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
@@ -50,8 +51,10 @@ function App() {
         }}
       />
 
-      {/* All application routes */}
-      <AppRoutes />
+      {/* Global boundary + Application routes */}
+      <ErrorBoundary>
+        <AppRoutes />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }

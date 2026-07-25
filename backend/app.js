@@ -55,7 +55,7 @@ connectDB();
  */
 app.use(
   cors({
-    origin: true,
+    origin: process.env.CORS_ORIGIN || true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, // Allow cookies and auth headers
   })
